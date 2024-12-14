@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>{{ property.title }}</h2>
+    <p>{{ property.description }}</p>
+    <p>Starting Price: ${{ property.starting_price }}</p>
+    <p>Current Price: ${{ property.current_price }}</p>
+    <p>Ends At: {{ property.end_time }}</p>
+
+    <h3>Place a Bid</h3>
+    <form method="POST" action="/property/{{ property.id }}/bid">
+        <div class="mb-3">
+            <label for="amount" class="form-label">Bid Amount</label>
+            <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Place Bid</button>
+    </form>
+</div>
+</body>
+</html>
